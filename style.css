@@ -1,0 +1,153 @@
+:root {
+  --bg: #0f1115;
+  --panel: #15181d;
+  --ink: #e8e6e1;
+  --muted: #9aa0a6;
+  --accent: #c8a24b;
+  --line: #23272e;
+  --max: 880px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 48px 24px 32px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #121417;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: ui-monospace, Menlo, monospace;
+  font-weight: 700;
+}
+
+.wordmark {
+  font-size: 16px;
+}
+
+.hero {
+  margin-top: 72px;
+  flex: 1;
+}
+
+.hero h1 {
+  font-size: clamp(28px, 4.2vw, 44px);
+  line-height: 1.15;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+
+.lede {
+  color: var(--muted);
+  font-size: 18px;
+  max-width: 60ch;
+  margin: 0 0 40px;
+}
+
+.pillars {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.pillars li {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px 18px 16px;
+}
+
+.pillars h2 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 6px;
+  color: var(--accent);
+}
+
+.pillars p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(200, 162, 75, 0.15);
+}
+
+.foot {
+  margin-top: 64px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.sep {
+  opacity: 0.5;
+}
