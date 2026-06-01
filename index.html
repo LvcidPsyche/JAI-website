@@ -3,66 +3,380 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>JAI Studios</title>
+    <title>JAI-Assay — audit-grade quality scoring for training data</title>
     <meta
       name="description"
-      content="JAI Studios — hosted reasoning and data APIs for builders. Launching soon."
+      content="You generate the data. We assay its quality. A blind 3-judge panel scores synthetic training data against a published rubric, reports inter-judge agreement, and issues a certification mark anyone can independently reproduce."
     />
-    <meta property="og:title" content="JAI Studios" />
+    <meta property="og:title" content="JAI-Assay — assay the quality of your training data" />
     <meta
       property="og:description"
-      content="Hosted reasoning and data APIs for builders. Launching soon."
+      content="A blind 3-judge panel scores synthetic training data against a published rubric and issues a reproducible certification mark."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://jaistudios.app" />
-    <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%23121417'/><text x='50%25' y='56%25' font-family='ui-monospace,Menlo,monospace' font-size='28' fill='%23C8A24B' text-anchor='middle' dominant-baseline='middle' font-weight='700'>J</text></svg>" />
+    <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230d0e11'/><text x='50%25' y='57%25' font-family='ui-monospace,Menlo,monospace' font-size='30' fill='%23cda85a' text-anchor='middle' dominant-baseline='middle' font-weight='700'>J</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <main class="wrap">
-      <header class="brand">
-        <span class="logo" aria-hidden="true">J</span>
-        <span class="wordmark">JAI Studios</span>
-      </header>
-
-      <section class="hero">
-        <h1>Hosted reasoning and data APIs for builders.</h1>
-        <p class="lede">
-          A small team shipping infrastructure for teams that work with
-          large language models. Public launch in the coming weeks.
-        </p>
-
-        <ul class="pillars" aria-label="What we're building">
-          <li>
-            <h2>Reasoning API</h2>
-            <p>Server-side primitives for production AI workloads.</p>
-          </li>
-          <li>
-            <h2>Data API</h2>
-            <p>Tools for preparing and managing model-ready data.</p>
-          </li>
-          <li>
-            <h2>Developer tools</h2>
-            <p>CLIs and SDKs designed to fit existing pipelines.</p>
-          </li>
-        </ul>
-
-        <div class="status">
-          <span class="dot" aria-hidden="true"></span>
-          <span>Pre-launch. Sign-ups and contact details coming soon.</span>
+    <!-- nav -->
+    <nav class="nav">
+      <div class="shell">
+        <a class="brand" href="./index.html" aria-label="JAI-Assay home">
+          <span class="logo" aria-hidden="true">J</span>
+          <span class="wordmark">JAI<b>·</b>Assay</span>
+        </a>
+        <div class="nav-links">
+          <a class="hide-sm" href="#how">How it works</a>
+          <a class="hide-sm" href="#marks">Marks</a>
+          <a class="hide-sm" href="#api">API</a>
+          <a href="#pricing">Pricing</a>
+          <a class="btn btn-ghost" href="#access" style="padding:8px 14px;">Request access</a>
         </div>
-      </section>
+      </div>
+    </nav>
 
-      <footer class="foot">
-        <span>&copy; <span id="year">2026</span> JAI Studios.</span>
+    <!-- hero -->
+    <header class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <div class="eyebrow rise" style="--d:0">Judging-as-a-service</div>
+          <h1 class="rise" style="--d:1">You generate the data.<br />We <em>assay</em> its quality.</h1>
+          <p class="lede rise" style="--d:2">
+            A blind <b>3-judge panel</b> scores every row of your synthetic
+            training data against a published rubric, reports how strongly the
+            judges agree, and issues a certification mark <b>anyone can reproduce</b>.
+          </p>
+          <div class="cta-row rise" style="--d:3">
+            <a class="btn btn-gold" href="#access">Request early access <span class="arw" aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="#api">See the API</a>
+          </div>
+          <div class="trust-line rise" style="--d:4">
+            <span>Never trained on your data</span>
+            <span>Transient by default</span>
+            <span>Independently reproducible</span>
+          </div>
+        </div>
+
+        <!-- specimen / quality report -->
+        <aside class="specimen rise" style="--d:3" aria-label="Example quality report">
+          <div class="spec-head">
+            <span class="spec-file">support-sft.jsonl · <b>500 rows</b></span>
+            <span>/v1/assay/audit</span>
+          </div>
+          <div class="spec-body">
+            <div class="seal" role="img" aria-label="JAI-Assay Certified seal">
+              <div class="seal-inner">
+                <div class="mark">✓</div>
+                <div class="lbl">Certified</div>
+              </div>
+            </div>
+            <div class="spec-metrics">
+              <div class="metric">
+                <div class="metric-top"><span class="k">faithfulness</span><span class="v">4.6</span></div>
+                <div class="bar"><i style="width:92%"></i></div>
+              </div>
+              <div class="metric">
+                <div class="metric-top"><span class="k">specificity</span><span class="v">4.1</span></div>
+                <div class="bar"><i style="width:82%"></i></div>
+              </div>
+              <div class="metric">
+                <div class="metric-top"><span class="k">utility</span><span class="v">4.3</span></div>
+                <div class="bar"><i style="width:86%"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="spec-foot">
+            <span>agreement <b>94% within-1</b></span>
+            <span>panel: deepseek · gpt-5 · grok</span>
+            <span>sha256:9f2c…e1a4</span>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <!-- credential strip -->
+    <div class="creds">
+      <div class="shell">
+        <span class="cred"><span>3</span> independent judges, blind &amp; shuffled</span>
+        <span class="cred"><span>R2.2</span> published open rubric</span>
+        <span class="cred"><span>α</span> inter-rater agreement, reported</span>
+        <span class="cred"><span>∎</span> replication package on every audit</span>
+      </div>
+    </div>
+
+    <!-- how it works -->
+    <section class="block" id="how">
+      <div class="shell">
+        <div class="kicker reveal">The assay</div>
+        <h2 class="reveal">Three judges. One published rubric. A result you can re-run.</h2>
+        <p class="section-lede reveal">
+          Single-judge scores are a coin flip you can&rsquo;t audit. JAI-Assay runs
+          a panel and reports the agreement &mdash; the one number a competitor
+          can&rsquo;t fake.
+        </p>
+        <div class="steps">
+          <div class="step reveal">
+            <h3>Send your rows</h3>
+            <p>Upload JAI-native, OpenAI chat, or HuggingFace formats. Add source documents to score faithfulness, or skip them &mdash; we&rsquo;ll tell you what we couldn&rsquo;t measure.</p>
+          </div>
+          <div class="step reveal" style="--d:1">
+            <h3>The panel scores</h3>
+            <p>DeepSeek, GPT-5, and Grok each score every row 1&ndash;5 on faithfulness, specificity, and utility against the published R2.2 rubric &mdash; independently, at temperature zero.</p>
+          </div>
+          <div class="step reveal" style="--d:2">
+            <h3>You get a verdict</h3>
+            <p>Per-row scores, inter-judge agreement, a quality report, a certification mark, and a replication package so anyone can reproduce the result.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- certification marks -->
+    <section class="block" id="marks">
+      <div class="shell">
+        <div class="kicker reveal">Certification marks</div>
+        <h2 class="reveal">A mark that means something &mdash; because it&rsquo;s reproducible.</h2>
+        <p class="section-lede reveal">
+          Three tiers of trust, embeddable in your HuggingFace dataset card, model
+          card, or compliance docs.
+        </p>
+        <div class="marks">
+          <div class="mark-card c-cert reveal">
+            <div class="glyph" aria-hidden="true">✓</div>
+            <h3>JAI-Assay Certified</h3>
+            <div class="tag">{ "mark": "certified" }</div>
+            <p>Independently evaluated by a 3-judge panel with strong inter-judge agreement on every dimension.</p>
+            <div class="req">3 judges · ≥90% within-1 agreement · 0 schema failures · reproducible</div>
+          </div>
+          <div class="mark-card c-eval reveal" style="--d:1">
+            <div class="glyph" aria-hidden="true">○</div>
+            <h3>JAI-Assay Evaluated</h3>
+            <div class="tag">{ "mark": "evaluated" }</div>
+            <p>Scored by a single judge. Directionally useful for ranking and filtering &mdash; not independently verified.</p>
+            <div class="req">1 judge · all rows scored · fast &amp; cheap</div>
+          </div>
+          <div class="mark-card c-part reveal" style="--d:2">
+            <div class="glyph" aria-hidden="true">◔</div>
+            <h3>JAI-Assay Partial</h3>
+            <div class="tag">{ "mark": "partial" }</div>
+            <p>Not every dimension could be scored &mdash; e.g. faithfulness with no source documents to ground against.</p>
+            <div class="req">honest about what was &mdash; and wasn&rsquo;t &mdash; measured</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- what we measure + why it holds up -->
+    <section class="block">
+      <div class="shell">
+        <div class="kicker reveal">What gets measured</div>
+        <h2 class="reveal">Three dimensions, on a scale you can read.</h2>
+        <div class="feat-grid" style="margin-bottom:48px;">
+          <div class="feat reveal">
+            <div class="ic">01 · faithfulness</div>
+            <h3>Does it stick to the evidence?</h3>
+            <p>Every claim is checked against the source documents you provide. No sources, no faithfulness score &mdash; and we say so.</p>
+          </div>
+          <div class="feat reveal" style="--d:1">
+            <div class="ic">02 · specificity</div>
+            <h3>Is it concrete and non-obvious?</h3>
+            <p>Generic, hedged, or boilerplate answers score low. Sharp, particular, defensible answers score high.</p>
+          </div>
+          <div class="feat reveal" style="--d:2">
+            <div class="ic">03 · utility</div>
+            <h3>Would training on it teach something?</h3>
+            <p>Rewards rows that carry a transferable pattern worth learning, not filler that pads a row count.</p>
+          </div>
+          <div class="feat reveal" style="--d:3">
+            <div class="ic">∑ · the report</div>
+            <h3>Bands, means, and disagreement.</h3>
+            <p>Per-row bands, mean scores per dimension, and the rows your judges argued over most &mdash; surfaced, not hidden.</p>
+          </div>
+        </div>
+
+        <div class="kicker reveal">Why it holds up</div>
+        <h2 class="reveal">The eval rig is the moat.</h2>
+        <div class="feat-grid">
+          <div class="feat reveal">
+            <div class="ic">agreement</div>
+            <h3>Statistics you can&rsquo;t fake</h3>
+            <p>Multi-judge agreement is reported on every run. Anyone can recompute it from the per-row scores &mdash; a single judge can&rsquo;t produce it.</p>
+          </div>
+          <div class="feat reveal" style="--d:1">
+            <div class="ic">open rubric</div>
+            <h3>Read exactly what we measure</h3>
+            <p>The R2.2 rubric &mdash; dimensions, the 1&ndash;5 scale, calibration discipline &mdash; is published. No black-box scoring.</p>
+          </div>
+          <div class="feat reveal" style="--d:2">
+            <div class="ic">replicate</div>
+            <h3>Verify it yourself</h3>
+            <p>Every audit ships a replication package. Re-run it through <code>/v1/assay/replicate</code> and compare, row by row.</p>
+          </div>
+          <div class="feat reveal" style="--d:3">
+            <div class="ic">tenant isolation</div>
+            <h3>Your data stays yours</h3>
+            <p>Transient by default &mdash; raw rows aren&rsquo;t retained. We never train our models on customer content. Full stop.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- API -->
+    <section class="block" id="api">
+      <div class="shell">
+        <div class="kicker reveal">For developers</div>
+        <h2 class="reveal">One POST. A verdict you can put in CI.</h2>
+        <p class="section-lede reveal">
+          Send rows, get a mark. Gate your training pipeline on
+          <code>certified</code> the same way you gate on a passing test.
+        </p>
+        <div class="api-grid">
+          <div class="code reveal">
+            <div class="code-bar"><span class="verb">POST</span> /v1/assay/score</div>
+<pre><span class="c"># score 500 rows with the full 3-judge panel</span>
+{
+  <span class="k">"rows"</span>: [
+    {
+      <span class="k">"id"</span>: <span class="s">"row-001"</span>,
+      <span class="k">"question"</span>: <span class="s">"What was the duplicate charge?"</span>,
+      <span class="k">"answer"</span>: <span class="s">"Jane was charged $49 twice on 05-01."</span>,
+      <span class="k">"citations"</span>: [<span class="s">"src-1"</span>]
+    }
+  ],
+  <span class="k">"source_documents"</span>: [
+    { <span class="k">"id"</span>: <span class="s">"src-1"</span>, <span class="k">"content"</span>: <span class="s">"Jane Doe was charged twice…"</span> }
+  ],
+  <span class="k">"config"</span>: { <span class="k">"panel_size"</span>: <span class="n">3</span> }
+}</pre>
+          </div>
+          <div class="code reveal" style="--d:1">
+            <div class="code-bar"><span class="verb res">200</span> assay response</div>
+<pre>{
+  <span class="k">"mark"</span>: <span class="ok">"certified"</span>,
+  <span class="k">"certified"</span>: <span class="ok">true</span>,
+  <span class="k">"dimensions_scored"</span>: [<span class="s">"faithfulness"</span>, <span class="s">"specificity"</span>, <span class="s">"utility"</span>],
+  <span class="k">"quality_report"</span>: {
+    <span class="k">"agreement"</span>: { <span class="k">"min_within1_rate"</span>: <span class="n">0.94</span> },
+    <span class="k">"mean_scores"</span>: { <span class="k">"faithfulness"</span>: <span class="n">4.6</span>, <span class="k">"specificity"</span>: <span class="n">4.1</span> }
+  },
+  <span class="k">"scored_rows"</span>: [
+    { <span class="k">"id"</span>: <span class="s">"row-001"</span>, <span class="k">"band"</span>: <span class="s">"solid"</span>,
+      <span class="k">"scores"</span>: { <span class="k">"faithfulness"</span>: <span class="n">5</span>, <span class="k">"specificity"</span>: <span class="n">4</span>, <span class="k">"utility"</span>: <span class="n">4</span> } }
+  ],
+  <span class="k">"panel"</span>: [<span class="s">"deepseek"</span>, <span class="s">"gpt5"</span>, <span class="s">"grok43"</span>],
+  <span class="k">"replication_hash"</span>: <span class="s">"sha256:9f2c…e1a4"</span>
+}</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- pricing -->
+    <section class="block" id="pricing">
+      <div class="shell">
+        <div class="kicker reveal">Pricing</div>
+        <h2 class="reveal">Pay per row. Certify what matters.</h2>
+        <p class="section-lede reveal">
+          Pure compute is nearly free; the panel is where the rigor &mdash; and the
+          cost &mdash; lives. Launch pricing below.
+        </p>
+        <div class="price-grid">
+          <div class="price reveal">
+            <div class="pt-name">Density</div>
+            <div class="amt">$0.001<small>/row</small></div>
+            <div class="mark-pill" style="color:var(--muted)">structural · no LLM</div>
+            <p>Instant structural density score. Sub-second, no judges.</p>
+          </div>
+          <div class="price reveal" style="--d:1">
+            <div class="pt-name">Evaluated</div>
+            <div class="amt">~$0.08<small>/row</small></div>
+            <div class="mark-pill" style="color:var(--evaluated)">○ 1-judge</div>
+            <p>Single-judge scoring. Fast triage for ranking and filtering.</p>
+          </div>
+          <div class="price feature reveal" style="--d:2">
+            <span class="badge">Most used</span>
+            <div class="pt-name">Certified</div>
+            <div class="amt">$0.25<small>/row</small></div>
+            <div class="mark-pill" style="color:var(--certified)">✓ 3-judge</div>
+            <p>The full panel, agreement statistics, and the green certification mark.</p>
+          </div>
+          <div class="price reveal" style="--d:3">
+            <div class="pt-name">Audit</div>
+            <div class="amt">$0.40<small>/row</small></div>
+            <div class="mark-pill" style="color:var(--certified)">✓ + report</div>
+            <p>Certified, plus dataset card, per-judge calibration, and the replication package.</p>
+          </div>
+        </div>
+        <div class="plans">
+          <span class="plans-label" style="color:var(--muted)">Monthly:</span>
+          <span class="pl"><b>Free</b> <s>25 rows/mo</s></span>
+          <span class="pl"><b>Pro $79</b> <s>400 rows</s></span>
+          <span class="pl"><b>Power $299</b> <s>1,750 rows</s></span>
+          <span class="pl"><b>Enterprise</b> <s>custom · DPA · SLA</s></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- closing CTA -->
+    <section class="closer" id="access">
+      <div class="shell">
+        <h2 class="reveal">Stop shipping training data you <em>hope</em> is good.</h2>
+        <p class="reveal">JAI-Assay is in private beta. Request access and we&rsquo;ll send you an API key and the published rubric.</p>
+        <div class="cta-row reveal">
+          <a class="btn btn-gold" href="mailto:hello@jaistudios.app?subject=JAI-Assay%20early%20access">Request early access <span class="arw" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#how">How it works</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="foot">
+      <div class="shell">
+        <a class="brand" href="./index.html">
+          <span class="logo" aria-hidden="true">J</span>
+          <span>JAI-Assay</span>
+        </a>
         <span class="sep" aria-hidden="true">·</span>
-        <a href="./privacy.html">Privacy</a>
-        <span class="sep" aria-hidden="true">·</span>
-        <a href="./terms.html">Terms</a>
-      </footer>
-    </main>
+        <span>&copy; <span id="year">2026</span> JAI Studios</span>
+        <span class="links">
+          <a href="./privacy.html">Privacy</a>
+          <a href="./terms.html">Terms</a>
+          <a href="mailto:hello@jaistudios.app">Contact</a>
+        </span>
+      </div>
+    </footer>
+
     <script>
+      document.documentElement.classList.add("js");
       document.getElementById("year").textContent = new Date().getFullYear();
+      (function () {
+        var els = document.querySelectorAll(".reveal");
+        if (!("IntersectionObserver" in window)) {
+          els.forEach(function (el) { el.classList.add("in"); });
+          return;
+        }
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                var el = e.target;
+                var d = parseFloat(el.style.getPropertyValue("--d")) || 0;
+                setTimeout(function () { el.classList.add("in"); }, d * 80);
+                io.unobserve(el);
+              }
+            });
+          },
+          { rootMargin: "0px 0px -10% 0px" }
+        );
+        els.forEach(function (el) { io.observe(el); });
+      })();
     </script>
   </body>
 </html>

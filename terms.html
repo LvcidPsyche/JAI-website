@@ -3,52 +3,90 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Terms — JAI Studios</title>
+    <title>Terms — JAI-Assay</title>
+    <meta name="description" content="Preliminary terms for the JAI-Assay private beta." />
+    <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230d0e11'/><text x='50%25' y='57%25' font-family='ui-monospace,Menlo,monospace' font-size='30' fill='%23cda85a' text-anchor='middle' dominant-baseline='middle' font-weight='700'>J</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <main class="wrap">
-      <header class="brand">
-        <a href="./index.html" style="display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none;">
+    <nav class="nav">
+      <div class="shell">
+        <a class="brand" href="./index.html" aria-label="JAI-Assay home">
           <span class="logo" aria-hidden="true">J</span>
-          <span class="wordmark">JAI Studios</span>
+          <span class="wordmark">JAI<b>·</b>Assay</span>
         </a>
-      </header>
+        <div class="nav-links">
+          <a href="./index.html">Home</a>
+          <a href="./privacy.html">Privacy</a>
+        </div>
+      </div>
+    </nav>
 
-      <section class="hero">
+    <main class="shell">
+      <article class="prose">
         <h1>Terms</h1>
-        <p class="lede">
-          JAI Studios is in a pre-launch state. This page is a placeholder
-          and will be replaced with our full terms of service at public launch.
-        </p>
+        <div class="updated">Preliminary · binding terms publish at general availability.</div>
 
         <p>
-          The information on this website is provided for general
-          informational purposes only and does not constitute an offer to
-          sell or solicitation of an offer to buy any product or service.
+          JAI-Assay is in private beta. These preliminary terms govern early
+          access. Full terms of service will replace this page at public launch
+          and will control from that point.
         </p>
 
+        <h2>Informational content</h2>
         <p>
-          By visiting this site you acknowledge that the content is
-          preliminary, subject to change, and provided on an "as is" basis.
+          Material on this website is provided for general information only and
+          is not an offer to sell or a solicitation to buy any product or
+          service. Pricing shown is launch pricing and may change before general
+          availability.
         </p>
 
+        <h2>Beta software, &ldquo;as is&rdquo;</h2>
         <p>
-          Full terms governing use of our products will be published
-          prior to launch.
+          Early-access APIs are preliminary, may change without notice, and are
+          provided on an &ldquo;as is&rdquo; basis without warranties of any kind.
         </p>
-      </section>
 
-      <footer class="foot">
-        <span>&copy; <span id="year">2026</span> JAI Studios.</span>
-        <span class="sep" aria-hidden="true">·</span>
-        <a href="./index.html">Home</a>
-        <span class="sep" aria-hidden="true">·</span>
-        <a href="./privacy.html">Privacy</a>
-      </footer>
+        <h2>What a certification mark means</h2>
+        <div class="callout">
+          A JAI-Assay mark reflects the panel&rsquo;s assessment of your data
+          <b>at the time of scoring</b>, against the published rubric, and is
+          independently reproducible from the replication package. It is an
+          attestation about the data assayed &mdash; not a warranty of any
+          downstream model&rsquo;s performance.
+        </div>
+
+        <h2>Your data</h2>
+        <p>
+          Handling of data you submit is described in our
+          <a href="./privacy.html">Privacy</a> summary &mdash; transient by
+          default, and never used to train our models.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Questions about these terms: <a href="mailto:hello@jaistudios.app">hello@jaistudios.app</a>.
+        </p>
+      </article>
     </main>
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+
+    <footer class="foot">
+      <div class="shell">
+        <a class="brand" href="./index.html">
+          <span class="logo" aria-hidden="true">J</span>
+          <span>JAI-Assay</span>
+        </a>
+        <span class="sep" aria-hidden="true">·</span>
+        <span>&copy; <span id="year">2026</span> JAI Studios</span>
+        <span class="links">
+          <a href="./index.html">Home</a>
+          <a href="./privacy.html">Privacy</a>
+        </span>
+      </div>
+    </footer>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
   </body>
 </html>
