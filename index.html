@@ -15,6 +15,13 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://jaistudios.app" />
+    <meta property="og:image" content="https://jaistudios.app/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="JAI-Assay — assay the quality of your training data" />
+    <meta name="twitter:description" content="A blind multi-judge panel scores synthetic training data against a published rubric and issues a reproducible certification mark." />
+    <meta name="twitter:image" content="https://jaistudios.app/og.png" />
     <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230d0e11'/><text x='50%25' y='57%25' font-family='ui-monospace,Menlo,monospace' font-size='30' fill='%23cda85a' text-anchor='middle' dominant-baseline='middle' font-weight='700'>J</text></svg>" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,7 +42,7 @@
         <div class="nav-links">
           <a class="hide-sm" href="#how">How it works</a>
           <a class="hide-sm" href="#marks">Marks</a>
-          <a class="hide-sm" href="#api">API</a>
+          <a class="hide-sm" href="./rubric.html">Rubric</a>
           <a href="#pricing">Pricing</a>
           <a class="btn btn-ghost" href="#access" style="padding:8px 14px;">Request access</a>
         </div>
@@ -49,9 +56,10 @@
           <div class="eyebrow rise" style="--d:0">Judging-as-a-service</div>
           <h1 class="rise" style="--d:1">You generate the data.<br />We <em>assay</em> its quality.</h1>
           <p class="lede rise" style="--d:2">
-            A blind <b>3-judge panel</b> scores every row of your synthetic
-            training data against a published rubric, reports how strongly the
-            judges agree, and issues a certification mark <b>anyone can reproduce</b>.
+            A blind <b>3-judge panel</b> &mdash; three independent model
+            lineages &mdash; scores every row of your synthetic training data
+            against a published rubric, reports how strongly the judges agree,
+            and issues a certification mark <b>anyone can reproduce</b>.
           </p>
           <div class="cta-row rise" style="--d:3">
             <a class="btn btn-gold" href="#access">Request early access <span class="arw" aria-hidden="true">→</span></a>
@@ -94,7 +102,7 @@
           </div>
           <div class="spec-foot">
             <span>agreement <b>94% within-1</b></span>
-            <span>panel: deepseek · gpt-5 · grok</span>
+            <span>panel: 3 independent lineages</span>
             <span>sha256:9f2c…e1a4</span>
           </div>
         </aside>
@@ -128,7 +136,7 @@
           </div>
           <div class="step reveal" style="--d:1">
             <h3>The panel scores</h3>
-            <p>DeepSeek, GPT-5, and Grok each score every row 1&ndash;5 on faithfulness, specificity, and utility against the published R2.2 rubric &mdash; independently, at temperature zero.</p>
+            <p>Three independent frontier models, each from a different lineage, score every row 1&ndash;5 on faithfulness, specificity, and utility against the published rubric &mdash; blind to one another, at temperature zero.</p>
           </div>
           <div class="step reveal" style="--d:2">
             <h3>You get a verdict</h3>
@@ -212,7 +220,7 @@
           <div class="feat reveal" style="--d:1">
             <div class="ic">open rubric</div>
             <h3>Read exactly what we measure</h3>
-            <p>The R2.2 rubric &mdash; dimensions, the 1&ndash;5 scale, calibration discipline &mdash; is published. No black-box scoring.</p>
+            <p>The full rubric &mdash; dimensions, the 1&ndash;5 scale, calibration discipline &mdash; is published. No black-box scoring. <a href="./rubric.html">Read the rubric&nbsp;&rarr;</a></p>
           </div>
           <div class="feat reveal" style="--d:2">
             <div class="ic">replicate</div>
@@ -270,7 +278,7 @@
     { <span class="k">"id"</span>: <span class="s">"row-001"</span>, <span class="k">"band"</span>: <span class="s">"solid"</span>,
       <span class="k">"scores"</span>: { <span class="k">"faithfulness"</span>: <span class="n">5</span>, <span class="k">"specificity"</span>: <span class="n">4</span>, <span class="k">"utility"</span>: <span class="n">4</span> } }
   ],
-  <span class="k">"panel"</span>: [<span class="s">"deepseek"</span>, <span class="s">"gpt5"</span>, <span class="s">"grok43"</span>],
+  <span class="k">"panel"</span>: [<span class="s">"judge-a"</span>, <span class="s">"judge-b"</span>, <span class="s">"judge-c"</span>],
   <span class="k">"replication_hash"</span>: <span class="s">"sha256:9f2c…e1a4"</span>
 }</pre>
           </div>
@@ -328,11 +336,34 @@
     <section class="closer" id="access">
       <div class="shell">
         <h2 class="reveal">Stop shipping training data you <em>hope</em> is good.</h2>
-        <p class="reveal">JAI-Assay is in private beta. Request access and we&rsquo;ll send you an API key and the published rubric.</p>
-        <div class="cta-row reveal">
-          <a class="btn btn-gold" href="mailto:hello@jaistudios.app?subject=JAI-Assay%20early%20access">Request early access <span class="arw" aria-hidden="true">→</span></a>
-          <a class="btn btn-ghost" href="#how">How it works</a>
-        </div>
+        <p class="reveal">JAI-Assay is in private beta. Leave your email and we&rsquo;ll send you an API key and the published rubric.</p>
+
+        <!-- Email capture. Set ACTION to your Formspree form endpoint
+             (https://formspree.io/f/XXXXXXXX) — or any form backend that
+             accepts a POST with an `email` field — to activate. -->
+        <form
+          class="signup reveal"
+          id="access-form"
+          action="https://formspree.io/f/YOUR_FORM_ID"
+          method="POST"
+        >
+          <label class="sr-only" for="email">Work email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            inputmode="email"
+            autocomplete="email"
+            required
+            placeholder="you@company.com"
+          />
+          <button class="btn btn-gold" type="submit">
+            Request access <span class="arw" aria-hidden="true">→</span>
+          </button>
+        </form>
+        <p class="signup-note reveal" id="form-note">
+          No spam. We&rsquo;ll only email you about beta access.
+        </p>
       </div>
     </section>
 
@@ -356,6 +387,49 @@
     <script>
       document.documentElement.classList.add("js");
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Email capture — progressive enhancement. Without JS the form does a
+      // normal POST to the action; with JS we submit via fetch and show an
+      // inline confirmation. If the action is still the placeholder, fall
+      // back to a mailto so the page is never a dead end.
+      (function () {
+        var form = document.getElementById("access-form");
+        var note = document.getElementById("form-note");
+        if (!form) return;
+        var placeholder = form.action.indexOf("YOUR_FORM_ID") !== -1;
+        if (placeholder) {
+          form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            var email = (form.email.value || "").trim();
+            window.location.href =
+              "mailto:hello@jaistudios.app?subject=JAI-Assay%20early%20access" +
+              (email ? "&body=" + encodeURIComponent("Email: " + email) : "");
+          });
+          return;
+        }
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var btn = form.querySelector("button");
+          btn.disabled = true;
+          fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { Accept: "application/json" },
+          })
+            .then(function (r) {
+              if (!r.ok) throw new Error("bad status");
+              form.style.display = "none";
+              note.innerHTML =
+                "<b style='color:var(--certified)'>Thanks — you’re on the list.</b> We’ll be in touch with your key and the rubric.";
+            })
+            .catch(function () {
+              btn.disabled = false;
+              note.innerHTML =
+                "Something went wrong. Email <a href='mailto:hello@jaistudios.app'>hello@jaistudios.app</a> and we’ll sort it.";
+            });
+        });
+      })();
+
       (function () {
         var els = document.querySelectorAll(".reveal");
         if (!("IntersectionObserver" in window)) {

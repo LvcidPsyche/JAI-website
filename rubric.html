@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Rubric — JAI-Assay</title>
+    <meta name="description" content="The published JAI-Assay rubric: three scoring dimensions on a 1–5 scale, calibration and reasoning discipline, and worked calibration examples. Read exactly what we measure." />
+    <meta property="og:title" content="The JAI-Assay Rubric" />
+    <meta property="og:description" content="Read exactly what we measure — three dimensions, a 1–5 scale, and worked calibration examples." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://jaistudios.app/rubric.html" />
+    <meta property="og:image" content="https://jaistudios.app/og.png" />
+    <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230d0e11'/><text x='50%25' y='57%25' font-family='ui-monospace,Menlo,monospace' font-size='30' fill='%23cda85a' text-anchor='middle' dominant-baseline='middle' font-weight='700'>J</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="shell">
+        <a class="brand" href="./index.html" aria-label="JAI-Assay home">
+          <span class="logo" aria-hidden="true">J</span>
+          <span class="wordmark">JAI<b>·</b>Assay</span>
+        </a>
+        <div class="nav-links">
+          <a class="hide-sm" href="./index.html#how">How it works</a>
+          <a class="hide-sm" href="./index.html#marks">Marks</a>
+          <a href="./index.html#pricing">Pricing</a>
+          <a class="btn btn-ghost" href="./index.html#access" style="padding:8px 14px;">Request access</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="shell">
+      <header class="rubric-hero">
+        <div class="eyebrow">The open rubric</div>
+        <h1>Read exactly <em>what we measure</em>.</h1>
+        <p class="lede">
+          JAI-Assay scores every row on three independent dimensions, each on a
+          1&ndash;5 scale, against the published rubric below. Nothing here is a
+          black box: the same rubric the judges read is the rubric you read.
+        </p>
+        <div class="rubric-meta">
+          <span class="chip">version <b>R2.2</b></span>
+          <span class="chip">scale <b>1&ndash;5 integer</b></span>
+          <span class="chip">dimensions <b>3</b></span>
+          <span class="chip">temperature <b>0.0</b></span>
+        </div>
+      </header>
+
+      <section class="block" style="border-bottom:none;padding-top:48px;">
+        <h2 style="font-size:clamp(24px,3vw,32px);margin:0 0 8px;">The dimensions</h2>
+        <p class="section-lede">
+          Score honestly &mdash; length, verbosity, and hedging earn nothing. A
+          short, evidence-bound row scores the same as a long one with identical
+          grounding.
+        </p>
+
+        <div class="dim">
+          <div class="dim-head">
+            <span class="num">01</span>
+            <h3>Faithfulness</h3>
+            <span class="need">requires source documents</span>
+          </div>
+          <p class="q">Does the row stick to facts present in the cited evidence?</p>
+          <ul class="scale">
+            <li><span class="lvl">5</span><span>Every claim traces directly to evidence; no fabrication.</span></li>
+            <li><span class="lvl">4</span><span>Claims are inferred-but-plausible from evidence; no contradictions.</span></li>
+            <li><span class="lvl">3</span><span>Minor unsupported detail, or one inference that&rsquo;s a stretch.</span></li>
+            <li><span class="lvl">2</span><span>Meaningful unsupported claims, or a clear contradiction with evidence.</span></li>
+            <li><span class="lvl">1</span><span>Fabricated identifiers, invented facts, or wholly ungrounded.</span></li>
+          </ul>
+        </div>
+
+        <div class="dim">
+          <div class="dim-head">
+            <span class="num">02</span>
+            <h3>Specificity</h3>
+          </div>
+          <p class="q">Does the row capture concrete, non-obvious facts?</p>
+          <ul class="scale">
+            <li><span class="lvl">5</span><span>Pulls a specific, training-useful fact &mdash; numbers, names, edge cases, mechanisms.</span></li>
+            <li><span class="lvl">4</span><span>Solid specifics, but could be one step more concrete.</span></li>
+            <li><span class="lvl">3</span><span>Generic but accurate restatement of the source.</span></li>
+            <li><span class="lvl">2</span><span>Vague paraphrase; the source had more to offer.</span></li>
+            <li><span class="lvl">1</span><span>Hedge-filled or content-free.</span></li>
+          </ul>
+        </div>
+
+        <div class="dim">
+          <div class="dim-head">
+            <span class="num">03</span>
+            <h3>Utility</h3>
+          </div>
+          <p class="q">Would training on this row teach a model a transferable pattern?</p>
+          <ul class="scale">
+            <li><span class="lvl">5</span><span>High-leverage example &mdash; the kind of row you&rsquo;d want lots of.</span></li>
+            <li><span class="lvl">4</span><span>Useful pattern, slightly narrow.</span></li>
+            <li><span class="lvl">3</span><span>OK but unremarkable; training value is replaceable.</span></li>
+            <li><span class="lvl">2</span><span>Pattern is trivial or already well-represented.</span></li>
+            <li><span class="lvl">1</span><span>Anti-pattern &mdash; would teach bad behavior.</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="block" style="border-bottom:none;padding-top:24px;">
+        <h2 style="font-size:clamp(24px,3vw,32px);margin:0 0 18px;">Scoring discipline</h2>
+        <div class="discipline">
+          <div class="feat">
+            <div class="ic">calibration</div>
+            <h3>Match the anchor, apply its score</h3>
+            <p>Each row is scored by matching it to the calibration anchor whose pattern it most resembles, then applying that anchor&rsquo;s expected score. The full 1&ndash;5 scale is used as the anchors define it &mdash; scores are never pushed toward any target distribution. A genuinely strong dataset may concentrate at 4&ndash;5; a genuinely weak one at 1&ndash;2. The anchors are ground truth.</p>
+          </div>
+          <div class="feat">
+            <div class="ic">reasoning</div>
+            <h3>Reasoning first, score second</h3>
+            <p>Reasoning is written in full <em>before</em> any number is assigned &mdash; the judge names the lowest-scoring dimension and the specific weakness that drove it, then states the integer. No pre-committing to a score and rationalizing after.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" style="border-bottom:none;padding-top:24px;">
+        <h2 style="font-size:clamp(24px,3vw,32px);margin:0 0 8px;">Calibration examples</h2>
+        <p class="section-lede">
+          Worked examples that define what the numbers mean. (Illustrative &mdash;
+          shown with neutral domains.)
+        </p>
+
+        <div class="anchor">
+          <div class="anchor-qa">
+            <span class="lab">Q:</span> What was the duplicate charge amount, and when was it refunded?<br />
+            <span class="lab">A:</span> The customer was charged $49 twice on 2026-05-01; the second charge was refunded within 3&ndash;5 business days, preserving the billing cycle.
+          </div>
+          <div class="anchor-scores">
+            <span class="s">faithfulness <b>5</b></span>
+            <span class="s">specificity <b>5</b></span>
+            <span class="s">utility <b>5</b></span>
+          </div>
+          <p class="why">Every claim traces to the cited evidence; the answer is specific (exact amount, date, window) and teaches a reusable pattern. A high-leverage row.</p>
+        </div>
+
+        <div class="anchor">
+          <div class="anchor-qa">
+            <span class="lab">Q:</span> How should the service handle a failed webhook delivery?<br />
+            <span class="lab">A:</span> It retries with exponential backoff up to 5 attempts, then moves the event to a dead-letter queue surfaced under <code>delivery_failed</code>.
+          </div>
+          <div class="anchor-scores">
+            <span class="s">faithfulness <b>5</b></span>
+            <span class="s">specificity <b>5</b></span>
+            <span class="s">utility <b>4</b></span>
+          </div>
+          <p class="why">Faithful and specific &mdash; names the actual mechanism and state, not &ldquo;an error.&rdquo; Utility is 4, not 5, because the pattern is narrow: you wouldn&rsquo;t want dozens of near-identical rows about this one path.</p>
+        </div>
+
+        <div class="anchor">
+          <div class="anchor-qa">
+            <span class="lab">Q:</span> What&rsquo;s a good way to handle errors in async jobs?<br />
+            <span class="lab">A:</span> Always log errors and surface them to the user with appropriate context so they can understand what went wrong and take corrective action.
+          </div>
+          <div class="anchor-scores">
+            <span class="s">faithfulness <b>4</b></span>
+            <span class="s">specificity <b>2</b></span>
+            <span class="s">utility <b>2</b></span>
+          </div>
+          <p class="why">Generic-but-true, so faithfulness is 4. But specificity is 2 &mdash; hedge-filled, no concrete mechanism (no status code, no field, no example). Utility is 2: training on this teaches a model to give platitudes when asked a specific question.</p>
+        </div>
+      </section>
+
+      <section class="block" style="padding-top:24px;">
+        <h2 style="font-size:clamp(24px,3vw,32px);margin:0 0 18px;">How a verdict is reached</h2>
+        <div class="feat-grid">
+          <div class="feat">
+            <div class="ic">no sources, no faithfulness</div>
+            <h3>We say what we couldn&rsquo;t measure</h3>
+            <p>Faithfulness can only be scored against source documents. Submit without them and we score specificity and utility, mark faithfulness as skipped, and label the result <span style="font-family:var(--mono);font-size:13px;color:var(--partial)">partial</span> &mdash; never silently.</p>
+          </div>
+          <div class="feat">
+            <div class="ic">agreement, not authority</div>
+            <h3>Certified means the judges agreed</h3>
+            <p>A green <span style="font-family:var(--mono);font-size:13px;color:var(--certified)">certified</span> mark requires a 3-judge panel, every dimension scored, no schema failures, and the judges landing within a point of each other on at least 90% of rows. The agreement statistic is reported on every run &mdash; and recomputable from the per-row scores.</p>
+          </div>
+        </div>
+        <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:14px;">
+          <a class="btn btn-gold" href="./index.html#access">Request access <span class="arw" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn-ghost" href="./index.html#api">See the API</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="shell">
+        <a class="brand" href="./index.html">
+          <span class="logo" aria-hidden="true">J</span>
+          <span>JAI-Assay</span>
+        </a>
+        <span class="sep" aria-hidden="true">·</span>
+        <span>&copy; <span id="year">2026</span> JAI Studios</span>
+        <span class="links">
+          <a href="./index.html">Home</a>
+          <a href="./privacy.html">Privacy</a>
+          <a href="./terms.html">Terms</a>
+        </span>
+      </div>
+    </footer>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  </body>
+</html>
