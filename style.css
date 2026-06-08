@@ -111,9 +111,16 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; letter-spacing: -0.015
 .wordmark { font-size: 16px; letter-spacing: 0.2px; }
 .wordmark b { color: var(--gold); font-weight: 600; }
 .nav-links { margin-left: auto; display: flex; gap: 26px; align-items: center; }
-.nav-links a { color: var(--muted); font-size: 14.5px; font-weight: 500; }
+.nav-links a { color: var(--muted); font-size: 14.5px; font-weight: 500; white-space: nowrap; }
 .nav-links a:hover { color: var(--ink); }
 @media (max-width: 720px) { .nav-links .hide-sm { display: none; } }
+/* phone widths: keep brand + CTA on one 64px row (overflow-x is hidden) */
+@media (max-width: 440px) {
+  .nav .shell { gap: 10px; padding: 0 16px; }
+  .nav-links { gap: 14px; }
+  .nav-links a { font-size: 13.5px; }
+  .nav-links .btn { padding: 8px 12px; }
+}
 
 /* ---- buttons ------------------------------------------------------------- */
 .btn {
@@ -217,11 +224,14 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; letter-spacing: -0.015
   content: ""; position: absolute; inset: 8px; border-radius: 50%;
   border: 1px dashed rgba(42,32,12,0.45);
 }
-.seal-inner { transform: rotate(0deg); }
+.seal-inner { animation: sealspin-rev 26s linear infinite; }
 .seal .mark { font-family: var(--serif); font-weight: 600; font-size: 26px; line-height: 1; }
 .seal .lbl { font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 4px; font-weight: 600; }
 @keyframes sealspin { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: reduce) { .seal { animation: none; } }
+/* counter-rotate the face at the same rate so the seal ring spins while the
+   ✓ Certified mark stays upright (it was rotating fully upside-down) */
+@keyframes sealspin-rev { to { transform: rotate(-360deg); } }
+@media (prefers-reduced-motion: reduce) { .seal, .seal-inner { animation: none; } }
 
 .spec-metrics { flex: 1; min-width: 0; }
 .metric { margin-bottom: 11px; }
