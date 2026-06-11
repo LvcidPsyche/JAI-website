@@ -76,7 +76,7 @@
         <aside class="specimen rise" style="--d:3" aria-label="Example quality report">
           <div class="spec-head">
             <span class="spec-file">support-sft.jsonl · <b>500 rows</b></span>
-            <span>/v1/assay/audit</span>
+            <span>/v1/assay/score/async</span>
           </div>
           <div class="spec-body">
             <div class="seal" role="img" aria-label="JAI-Assay Certified seal">
@@ -103,7 +103,7 @@
           <div class="spec-foot">
             <span>agreement <b>94% within-1</b></span>
             <span>panel: 3 independent lineages</span>
-            <span>sha256:9f2c…e1a4</span>
+            <span>hmac-sha256:9f2c…e1a4</span>
           </div>
         </aside>
       </div>
@@ -225,7 +225,7 @@
           <div class="feat reveal" style="--d:2">
             <div class="ic">replicate</div>
             <h3>Verify it yourself</h3>
-            <p>Every audit ships a replication package. Re-run it through <code>/v1/assay/replicate</code> and compare, row by row.</p>
+            <p>Every audit ships a replication package sealed with a server-signed hash &mdash; edited scores can&rsquo;t be re-sealed. Re-run it through <code>/v1/assay/replicate</code> and compare, row by row.</p>
           </div>
           <div class="feat reveal" style="--d:3">
             <div class="ic">tenant isolation</div>
@@ -248,7 +248,7 @@
         <div class="api-grid">
           <div class="code reveal">
             <div class="code-bar"><span class="verb">POST</span> /v1/assay/score</div>
-<pre><span class="c"># score 500 rows with the full 3-judge panel</span>
+<pre><span class="c"># sync scores up to 25 rows; async handles up to 10,000</span>
 {
   <span class="k">"rows"</span>: [
     {
@@ -279,7 +279,7 @@
       <span class="k">"scores"</span>: { <span class="k">"faithfulness"</span>: <span class="n">5</span>, <span class="k">"specificity"</span>: <span class="n">4</span>, <span class="k">"utility"</span>: <span class="n">4</span> } }
   ],
   <span class="k">"panel"</span>: [<span class="s">"judge-a"</span>, <span class="s">"judge-b"</span>, <span class="s">"judge-c"</span>],
-  <span class="k">"replication_hash"</span>: <span class="s">"sha256:9f2c…e1a4"</span>
+  <span class="k">"replication_hash"</span>: <span class="s">"hmac-sha256:9f2c…e1a4"</span>
 }</pre>
           </div>
         </div>
